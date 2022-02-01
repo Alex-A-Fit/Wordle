@@ -21,9 +21,7 @@ body, html {
     text-align: center;
 }
 
-.Square{
-    width: 200px;
-    height: 200px;
+.Body{
     background-color: blueviolet;
 }
 
@@ -48,4 +46,59 @@ body, html {
 }
 .CorrectAns{
     color: blueviolet;
+}
+
+.GameTile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    width: 60px;
+    height: 60px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0.4rem;
+}
+
+.Wrong{
+    background-color: rgb(88, 88, 88);
+    color: white
+}
+.Exist{
+    background-color: #c9b458;
+    color: black;
+}
+.Correct{
+    background-color: #6aaa64;
+    color: black;
+}
+.Keyboard{
+    border: 2px solid black;
+    width: 60px;
+    height: 60px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0.4rem;
+    background-color: grey;
+    color: white;
+}
+.Keyboard-Enter{
+    border: 2px solid black;
+    width: 110px;
+    height: 60px;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.4rem;
+    background-color: grey;
+    color: white;
+}
+.Keyboard-Backspace{
+    border: 2px solid black;
+    width: 200px;
+    height: 60px;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.4rem;
+    background-color: grey;
+    color: white;
 }

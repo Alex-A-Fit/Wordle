@@ -15,29 +15,138 @@
     <link rel="stylesheet" href="./style.css" type="text/css" />
     <title>Wordle, but with COLOR</title>
   </head>
-  <body>
+  <body class="Body" id="Body">
     <div class="container TopMargin">
       <div class="row">
         <div class="col-12 Center"><h1>Wordle, but with Colors!</h1></div>
-        <div class="col-12 Center"><h3>Guess the color, unlimited tries!</h3></div>
+        <div class="col-12 Center"><h3>Guess the Screen Color!</h3></div>
       </div>
     </div>
 
     <div class="container TopMargin">
-      <div class="row">
-          <div class="col-12 Center">
-              <div class="Square" id="Square"></div>
-
+      <div id="GameBoard">
+        <div class="row">
+          <div class="col-12 Center" id="Guess1">
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="One">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled  id="Two">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Three">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Four">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Five">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Six">
+            </div>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-12 Center" id="Guess2">
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled  id="One">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Two">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Three">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Four">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Five">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Six">
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 Center" id="Guess3">
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="One">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Two">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Three">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Four">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Five">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Six">
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 Center" id="Guess4">
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="One">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Two">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Three">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Four">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Five">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Six">
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 Center" id="Guess5">
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="One">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Two">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Three">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Four">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Five">
+            </div>
+            <div class="GameTile">
+              <input type="text" class="GameTile" disabled id="Six">
+            </div>
+          </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="container TopMargin Center">
-      <div class="row ">
-        <div class="col-12 ">
+    <!-- <div class="col-12">
           <p class="ReminderText">
-            Input answers in Hexadecimal only. <br /> <br /> Don't know what hexadecimals are?
-            Follow this
+            Input answers in Hexadecimal only. <br />
+            <br />
+            Don't know what hexadecimals are? Follow this
 
             <a
               href="https://www.w3schools.com/colors/colors_hexadecimal.asp"
@@ -45,24 +154,67 @@
             >
               Link
             </a>
-            <br /> <br />
+            <br />
+            <br />
             P.S. Don't Forget the '#' at the beginning!
           </p>
         </div>
         <div class="col-12">
-            
-                <div class="mb-3 Center">
-                  <input type="text" class="form-control Answer" id="inputAnswer1" aria-describedby="inputAnswer1" placeholder=" Your answer here!" maxlength="7">
-                  <button class="btn btn-primary SubmitBtn" id="submitBtn">Submit</button>
-                </div>
-              
+          <div class="mb-3 Center">
+            <input
+              type="text"
+              class="form-control Answer"
+              id="inputAnswer1"
+              aria-describedby="inputAnswer1"
+              placeholder=" Your answer here!"
+              maxlength="7"
+            />
+            <button class="btn btn-primary SubmitBtn" id="submitBtn">
+              Submit
+            </button>
+          </div>
         </div>
         <div class="col-12 Center">
-            <p class="WrongAns" id="wrongAns"></p>
+          <p class="WrongAns" id="wrongAns"></p>
         </div>
         <div class="col-12 Center CorrectAns">
           <p class="CorrectAns" id="CorrectAns"></p>
-      </div>
+        </div> -->
+    <div class="container TopMargin Center">
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 Center">
+              <button class="Keyboard" id="Btn1" value="1">1</button>
+              <button class="Keyboard" id="Btn2" value="2">2</button>
+              <button class="Keyboard" id="Btn3" value="3">3</button>
+              <button class="Keyboard" id="Btn4" value="4">4</button>
+              <button class="Keyboard" id="Btn5" value="5">5</button>
+              <button class="Keyboard" id="Btn6" value="6">6</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 Center">
+              <button class="Keyboard" id="Btn7" value="7">7</button>
+              <button class="Keyboard" id="Btn8" value="8">8</button>
+              <button class="Keyboard" id="Btn9" value="9">9</button>
+              <button class="Keyboard" id="Btn0" value="0">0</button>
+              <button class="Keyboard" id="BtnA" value="A">A</button>
+              <button class="Keyboard" id="BtnB" value="B">B</button>
+              <button class="Keyboard" id="BtnC" value="C">C</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 Center">
+              <button class="Keyboard-Enter" id="BtnEnter" value="Enter">Enter</button>
+              <button class="Keyboard" id="BtnD" value="D">D</button>
+              <button class="Keyboard" id="BtnE" value="E">E</button>
+              <button class="Keyboard" id="BtnF" value="F">F</button>
+              <button class="Keyboard-Backspace" id="BtnBackspace" value="Backspace">Backspace</button>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -77,8 +229,8 @@
     <script src="./script.js"></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
   </body>
 </html>
