@@ -5,8 +5,39 @@ h1, h2, h3, h4, h5, p {
 body, html {
     margin: 0;
     padding: 0;
+    /* overflow-x: hidden; */
+    
+}
+/* 
+if i need to add contrast to the board vs the screen comeback to this
+#GameBoard{
+    background-color: gray;
+    
+} */
+
+.ZeroPadding{
+    padding: 0 !important;
 }
 
+.btn-primary:hover{
+    text-decoration: underline;
+}
+
+.btn-Secondary {
+    height: fit-content;
+    width: min-content;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(173, 173, 173);
+}
+
+.Title{
+    width: fit-content;
+    background-color: rgb(173, 173, 173);
+    color: rgb(0, 0, 0);
+    padding: 0.75rem;
+    border-radius: 8px;
+}
 
 .Center {
     display: flex;
@@ -17,12 +48,35 @@ body, html {
     margin-top: 3rem;
 }
 
+.RemoveLinkCSS{
+    color: black;
+    background-color: #7d9b7a;
+    padding: 0.5rem;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+
+.RemoveLinkCSS:hover{
+    background-color: #485e46;
+    color: white;
+    text-decoration: underline;
+}
+
 .ReminderText {
     text-align: center;
 }
 
 .Body{
     background-color: blueviolet;
+}
+
+.WarningText{
+    background-color: rgb(71, 71, 71);
+    color: whitesmoke;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 8px;
 }
 
 .Answer {
@@ -58,8 +112,77 @@ body, html {
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0.4rem;
+    background-color: transparent;
+    perspective: 1000px;
 }
 
+
+.GameTileEx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.1rem;
+    perspective: 1000px;
+}
+
+.TileFontEx{
+    font-size: 2rem;
+    font-weight: 700;
+    position: relative;
+    top: 7px;
+}
+
+.GameTileInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+.isFlipped{
+    transform: rotateX(-180deg)
+}
+
+.GameTileFront{
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: black;
+}
+
+.GameTileFront, .GameTileBack{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: -6px;
+    left: -6px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.GameTileBack{
+    background-color: rgb(88, 88, 88);
+    transform: rotateX(180deg);
+    border: none;
+}
+
+.StatsText{
+    position: relative;
+    right: 10px;
+}
+
+.PercentText{
+    position: relative;
+    right: 20px;
+}
+
+.StatsNum{
+    font-size: 2.4rem;
+}
 .Wrong{
     background-color: rgb(88, 88, 88);
     color: white

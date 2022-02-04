@@ -13,167 +13,388 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./style.css" type="text/css" />
+    <script src="https://kit.fontawesome.com/5cf3a69ffa.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
     <title>Wordle, but with COLOR</title>
   </head>
+  
+      <!-- Instructions Modal Starts HERE -->
+      <div class="modal fade" id="Instructions" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="InstructionsLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title Tets" id="InstructionsLabel">Instructions</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Given the screen color, Guess what 6 letter or number hexadecimal combination it could be!</p>
+              <br />
+              <p>Click Enter on your keyboard, or the one on screen to submit your answer.</p>
+              <br />
+              <h5>Examples</h5>
+              <div class="Center">
+                <div class="GameTileEx Correct">
+                  <p class="TileFontEx">B</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">E</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">A</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">3</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">5</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">2</p>
+                </div>
+              </div>
+              <p>The letter <strong>B</strong> is in the <strong>Correct</strong> spot.</p>
+              <div class="Center">
+                <div class="GameTileEx">
+                  <p class="TileFontEx">F</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">9</p>
+                </div>
+                <div class="GameTileEx Center Exist">
+                  <p class="TileFontEx">C</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">2</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">1</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">1</p>
+                </div>
+              </div>
+              <p>The letter <strong>C</strong> is in the <strong>Wrong</strong> spot.</p>
+              <div class="Center">
+                <div class="GameTileEx">
+                  <p class="TileFontEx">1</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">1</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">6</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">C</p>
+                </div>
+                <div class="GameTileEx Center">
+                  <p class="TileFontEx">D</p>
+                </div>
+                <div class="GameTileEx Center Wrong">
+                  <p class="TileFontEx">F</p>
+                </div>
+              </div>
+              <p>The letter <strong>F</strong> does <strong>NOT Exist</strong> in the <strong>ANSWER AT ALL</strong>.</p>
+            </div>
+            <div class="modal-footer">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 d-flex justify-content-center">
+                    <h5>A new COLOR will appear everyday!</h5>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got It</button>
+             <a href="https://www.pluralsight.com/blog/tutorials/understanding-hexadecimal-colors-simple?exp=3" target="_blank" class="RemoveLinkCSS">What is Hexadecimal?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Instructions Modal ends HERE -->
+  
+  <!-- Leaderboard Modal Starts HERE -->
+  <div class="modal fade" id="Leaderboard" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LeaderboardLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="LeaderboardLabel">Statistics</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container d-flex justify-content-center">
+            <div class="row">
+              <div class="col-3">
+                <h5 class="StatsNum" id="GamesPlayed">1</h5>
+                <p class="StatsText">Played</p>
+              </div>
+              <div class="col-3">
+                <h5 class="StatsNum PercentText" id="WinPerct">0%</h5>
+                <p class="StatsText">Win %</p>
+              </div>
+              <div class="col-3">
+                <h5 class="StatsNum" id="CurrentStreak">0</h5>
+                <p class="StatsText">Current Streak</p>
+              </div>
+              <div class="col-3">
+                <h5 class="StatsNum" id="BestStreak">0</h5>
+                <p class="StatsText">MaxStreak</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Leaderboard Modal ends HERE -->
   <body class="Body" id="Body">
     <div class="container TopMargin">
       <div class="row">
-        <div class="col-12 Center"><h1>Wordle, but with Colors!</h1></div>
-        <div class="col-12 Center"><h3>Guess the Screen Color!</h3></div>
+        <div class="col-2 d-flex justify-content-end ZeroPadding">
+          <button type="button" class="btn btn-Secondary" id="InstructionsBtn" data-bs-toggle="modal" data-bs-target="#Instructions">
+            <i class="far fa-question-circle fa-2x"></i>
+          </button>
+        </div>
+        <div class="col-8 ZeroPadding Center"><h1 class="Title">Wordle, but with Colors!</h1></div>
+        <div class="col-2 d-flex justify-content-start ZeroPadding">
+          <button type="button" class="btn btn-Secondary" id="LeaderboardBtn" data-bs-toggle="modal" data-bs-target="#Leaderboard">
+            <i class="far fa-chart-bar fa-2x"></i>
+          </button>
+        </div>
+        <div class="col-12 Center"><h3 class="Title">Guess the Screen Color!</h3></div>
       </div>
     </div>
 
     <div class="container TopMargin">
       <div id="GameBoard">
         <div class="row">
+          <div class="col-12 Center d-none" id="Warning">
+            <p class="WarningText">
+              Please enter a 6 character hexadecimal color
+            </p>
+          </div>
+          <div class="col-12 Center d-none" id="Warning2">
+            <p class="WarningText">
+              Come back tomorrow to try again with a new color!
+            </p>
+          </div>
+          <div class="col-12 Center d-none" id="Success">
+            <p class="WarningText">
+              You found the right Color!!
+            </p>
+          </div>
           <div class="col-12 Center" id="Guess1">
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="One">
+              <div class="GameTileInner" id="One">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileOne" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileOneClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled  id="Two">
+              <div class="GameTileInner" id="Two">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileTwo" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileTwoClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Three">
+              <div class="GameTileInner" id="Three">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileThree" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileThreeClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Four">
+              <div class="GameTileInner" id="Four">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileFour" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileFourClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Five">
+              <div class="GameTileInner" id="Five">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileFive" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileFiveClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Six">
+              <div class="GameTileInner" id="Six">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileSix" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileSixClone" />
+              </div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-12 Center" id="Guess2">
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled  id="One">
+              <div class="GameTileInner" id="One">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileOne" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileOneClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Two">
+              <div class="GameTileInner" id="Two">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileTwo" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileTwoClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Three">
+              <div class="GameTileInner" id="Three">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileThree" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileThreeClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Four">
+              <div class="GameTileInner" id="Four">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileFour" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileFourClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Five">
+              <div class="GameTileInner" id="Five">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileFive" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileFiveClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Six">
+              <div class="GameTileInner" id="Six">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileSix" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileSixClone" />
+              </div>
             </div>
-          </div>
+            </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-12 Center" id="Guess3">
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="One">
+              <div class="GameTileInner" id="One">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileOne" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileOneClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Two">
+              <div class="GameTileInner" id="Two">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileTwo" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileTwoClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Three">
+              <div class="GameTileInner" id="Three">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileThree" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileThreeClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Four">
+              <div class="GameTileInner" id="Four">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileFour" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileFourClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Five">
+              <div class="GameTileInner" id="Five">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileFive" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileFiveClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Six">
+              <div class="GameTileInner" id="Six">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileSix" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileSixClone" />
+              </div>
             </div>
-          </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-12 Center" id="Guess4">
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="One">
+              <div class="GameTileInner" id="One">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileOne" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileOneClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Two">
+              <div class="GameTileInner" id="Two">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileTwo" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileTwoClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Three">
+              <div class="GameTileInner" id="Three">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileThree" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileThreeClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Four">
+              <div class="GameTileInner" id="Four">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileFour" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileFourClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Five">
+              <div class="GameTileInner" id="Five">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileFive" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileFiveClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Six">
+              <div class="GameTileInner" id="Six">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileSix" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileSixClone" />
+              </div>
             </div>
-          </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-12 Center" id="Guess5">
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="One">
+              <div class="GameTileInner" id="One">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileOne" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileOneClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Two">
+              <div class="GameTileInner" id="Two">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileTwo" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileTwoClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Three">
+              <div class="GameTileInner" id="Three">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileThree" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileThreeClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Four">
+              <div class="GameTileInner" id="Four">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileFour" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileFourClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Five">
+              <div class="GameTileInner" id="Five">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileFive" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileFiveClone" />
+              </div>
             </div>
             <div class="GameTile">
-              <input type="text" class="GameTile" disabled id="Six">
+              <div class="GameTileInner" id="Six">
+                <input type="text" class="GameTile GameTileFront" disabled id="TileSix" />
+                <input type="text" class="GameTile GameTileBack" disabled id="TileSixClone" />
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- <div class="col-12">
-          <p class="ReminderText">
-            Input answers in Hexadecimal only. <br />
-            <br />
-            Don't know what hexadecimals are? Follow this
-
-            <a
-              href="https://www.w3schools.com/colors/colors_hexadecimal.asp"
-              target="_blank"
-            >
-              Link
-            </a>
-            <br />
-            <br />
-            P.S. Don't Forget the '#' at the beginning!
-          </p>
-        </div>
-        <div class="col-12">
-          <div class="mb-3 Center">
-            <input
-              type="text"
-              class="form-control Answer"
-              id="inputAnswer1"
-              aria-describedby="inputAnswer1"
-              placeholder=" Your answer here!"
-              maxlength="7"
-            />
-            <button class="btn btn-primary SubmitBtn" id="submitBtn">
-              Submit
-            </button>
-          </div>
-        </div>
         <div class="col-12 Center">
           <p class="WrongAns" id="wrongAns"></p>
         </div>
@@ -206,31 +427,24 @@
           </div>
           <div class="row">
             <div class="col-12 Center">
-              <button class="Keyboard-Enter" id="BtnEnter" value="Enter">Enter</button>
+              <button class="Keyboard-Enter" id="BtnEnter" value="Enter">
+                Enter
+              </button>
               <button class="Keyboard" id="BtnD" value="D">D</button>
               <button class="Keyboard" id="BtnE" value="E">E</button>
               <button class="Keyboard" id="BtnF" value="F">F</button>
-              <button class="Keyboard-Backspace" id="BtnBackspace" value="Backspace">Backspace</button>
+              <button
+                class="Keyboard-Backspace"
+                id="BtnBackspace"
+                value="Backspace"
+              >
+                Backspace
+              </button>
             </div>
           </div>
-
         </div>
       </div>
     </div>
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
     <script src="./script.js"></script>
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>
