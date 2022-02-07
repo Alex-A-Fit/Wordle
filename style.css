@@ -45,7 +45,7 @@ if i need to add contrast to the board vs the screen comeback to this
 }
 
 .TopMargin {
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .RemoveLinkCSS{
@@ -106,7 +106,7 @@ if i need to add contrast to the board vs the screen comeback to this
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
     width: 60px;
     height: 60px;
     font-size: 2.5rem;
@@ -159,8 +159,8 @@ if i need to add contrast to the board vs the screen comeback to this
     position: absolute;
     width: 100%;
     height: 100%;
-    bottom: -6px;
-    left: -6px;
+    bottom: -8px;
+    left: -8px;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
@@ -224,4 +224,119 @@ if i need to add contrast to the board vs the screen comeback to this
     margin: 0.4rem;
     background-color: grey;
     color: white;
+}
+@media only screen and (min-width: 320px){
+    .GameTile{
+        width: 40px;
+        height: 40px;
+        font-size: 1.75rem;
+    }
+    .GameTileFront, .GameTileBack{
+        
+        bottom: -8px;
+        left: -8px;
+
+    }
+
+    .fa-2x {
+        font-size: 1.5rem;
+    }
+
+    .Title{
+        font-size: 1.3rem;
+    }
+
+    .Keyboard{
+        width: 35px;
+        height: 35px;
+        font-size: 1.3rem;
+        margin: 0.1rem;
+
+    }
+    .Keyboard-Enter{
+        width: 60px;
+        height: 35px;
+        font-size: 1.1rem;
+        margin: 0.1rem;
+
+    }
+    .Keyboard-Backspace{
+        width: 100px;
+        height: 35px;
+        font-size: 1.1rem;
+        margin: 0.1rem;
+    }
+
+}
+
+@media only screen and (min-width: 375px){
+    .GameTile{
+        width: 45px;
+        height: 45px;
+        font-size: 2rem;
+    }
+    .GameTileFront, .GameTileBack{
+        
+        bottom: -8px;
+        left: -9px;
+
+    }
+    .fa-2x {
+        font-size: 1.5rem;
+    }
+
+    .Keyboard{
+        width: 40px;
+        height: 40px;
+        font-size: 1.6rem;
+        margin: 0.2rem;
+
+    }
+    .Keyboard-Enter{
+        width: 70px;
+        height: 40px;
+        font-size: 1.3rem;
+        margin: 0.2rem;
+
+    }
+    .Keyboard-Backspace{
+        width: 120px;
+        height: 40px;
+        font-size: 1.3rem;
+        margin: 0.2rem;
+    }
+
+}
+
+@media only screen and (min-width: 768px){
+    .GameTile{
+        width: 60px;
+        height: 60px;
+        font-size: 2.5rem;
+    }
+    .Keyboard{
+        width: 60px;
+        height: 60px;
+        font-size: 2.5rem;
+        margin: 0.4rem;
+    }
+    .Title{
+        font-size: 2rem;
+    }
+    .Keyboard-Enter{
+        width: 110px;
+        height: 60px;
+        font-size: 2rem;
+        margin: 0.4rem;
+
+    }
+    .Keyboard-Backspace{
+        width: 200px;
+        height: 60px;
+        font-size: 2rem;
+        margin: 0.4rem;
+    }
+    .fa-2x {
+        font-size: 2rem;
+    }
 }
