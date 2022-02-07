@@ -11,6 +11,8 @@ let InstructionsBtn = document.getElementById("InstructionsBtn");
 let LeaderboardBtn = document.getElementById("LeaderboardBtn");
 let Instructions = document.getElementById("Instructions");
 
+
+
 //all keyboard imitation buttons
 let Btn1 = document.getElementById("Btn1");
 let Btn2 = document.getElementById("Btn2");
@@ -148,7 +150,7 @@ function PopulateGameBoard(GameState) {
           setBackgroundColor(letterPositionClone, "#585858");
           setColor(letterPositionClone, "#FFF");
         }
-      }, 500);
+      }, 300);
     }
   }
 }
@@ -159,6 +161,7 @@ function LoadGame() {
   if (GetFromLS("GameState") == null || GetFromLS("GameState" == undefined)) {
     setBackgroundColor(Body, GetRandomColor());
     SaveGameState();
+    InstructionsBtn.click();
   } else {
     let GameState = GetFromLS("GameState");
     LastPlayedTs = GameState.LastPlayed;
@@ -619,3 +622,4 @@ function CalcWinPercent(){
     return "0%";
   }
 }
+
