@@ -74,6 +74,9 @@ if i need to add contrast to the board vs the screen comeback to this
 .modalBottomMargin {
     margin-bottom: 1.4rem;
 }
+.modalNote{
+    font-size: 1.1rem;
+}
 
 .WarningText{
     background-color: rgb(71, 71, 71);

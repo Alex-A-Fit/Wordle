@@ -157,14 +157,13 @@ function PopulateGameBoard(GameState) {
 
 function LoadGame() {
   let TodaysDate = GetTodaysDate();
-
   if (GetFromLS("GameState") == null || GetFromLS("GameState" == undefined)) {
     setBackgroundColor(Body, GetRandomColor());
     SaveGameState();
     InstructionsBtn.click();
   } else {
     let GameState = GetFromLS("GameState");
-    LastPlayedTs = GameState.LastPlayed;
+    LastPlayedTs = GameState.LastPlayed
     if (
       LastPlayedTs[0] == TodaysDate[0] &&
       LastPlayedTs[1] == TodaysDate[1] &&
@@ -177,14 +176,22 @@ function LoadGame() {
       GuessArray = GameState.Guesses;
       LastCompletedTs = GameState.LastCompleted;
       setBackgroundColor(Body, "#" + answer);
+      SaveToLS("GameState", GameState);
       PopulateGameBoard(GameState);
     } else {
       setBackgroundColor(Body, GetRandomColor());
+      GameState.Answer = answer;
+      GameState.LastPlayed = TodaysDate;
+      GameState.Evaluations = Evaluation;
+      GameState.GameStatus = "IN_PROGRESS"
+      GameState.GuessRow = GuessIndex
+      GameState.Guesses = GuessArray 
+      SaveToLS("GameState", GameState);
+      console.log(GameState);
     }
   }
 }
 LoadGame();
-function RetrieveGuesses() {}
 
 function GetTodaysDate() {
   let TodaysDate = new Date();
@@ -300,7 +307,8 @@ KeyboardArray.forEach((button) => {
     });
   } else {
     button.addEventListener("click", function () {
-      //add function if avail
+
+      //add if avail function
       if (letterIndex > 6 || GuessIndex > 5) {
         return;
       } else {
@@ -315,9 +323,6 @@ KeyboardArray.forEach((button) => {
   }
 });
 
-// submitBtn.addEventListener("click", function () {
-//   checkAnswer();
-// });
 window.onkeydown = function (evt) {
   evt = evt || window.event;
   var charCode = evt.keyCode || evt.which || evt.charCode;
@@ -363,6 +368,7 @@ function GetRandomColor() {
     randomNum = RandomNum();
     color += hexArray[randomNum];
     answer += hexArray[randomNum];
+    hexArray.splice(randomNum, 1, "");
   }
   return color;
 }
